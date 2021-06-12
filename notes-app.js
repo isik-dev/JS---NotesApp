@@ -47,6 +47,7 @@
 //     })
 // }
 
+
 // renderNotes(notes, )
 
 // document.querySelector('#create-note').addEventListener('click', function (e) {
@@ -93,7 +94,7 @@ const renderNotes = function (notes, filters) {
     })
 }
 
-
+// look here
 
 renderNotes(notes, filters)
 
