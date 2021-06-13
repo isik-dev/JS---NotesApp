@@ -102,11 +102,11 @@ document.querySelector('#create-note').addEventListener('click', function (e) {
     console.log('Button was clicked')
 })
 
-document.querySelector('#remove-all').addEventListener('click', function (e) {
-    console.log('remove button was activated')
-})
-
 document.querySelector('#search-text').addEventListener('input', function (e) {
     filters.searchText = e.target.value
     renderNotes(notes, filters)
+})
+
+document.querySelector('#filter-by').addEventListener('change', function (e) {
+    console.log(e.target.value)
 })
