@@ -1,5 +1,3 @@
-console.log(uuidv4())
-
 // Read existing notes from localStorage
 const getSavedNotes = function () {
     const noteJSON = localStorage.getItem('notes')
@@ -11,6 +9,17 @@ const getSavedNotes = function () {
     }
     }
 
+// Remove a note from the list 
+const removeNote = function (id) {
+    const noteIndex = notes.findIndex(function (item) {
+        return item.id === id
+    })
+
+    if (noteIndex > -1) {
+        notes.splice(noteIndex, 1)
+    }
+}
+
 // Generate the DOM structure for a note
 const generateNoteDOM = function (item) {
     const noteEl = document.createElement('div')
@@ -20,6 +29,11 @@ const generateNoteDOM = function (item) {
     // Setup the remove note button
     button.textContent = 'x'
     noteEl.appendChild(button)
+    button.addEventListener('click', function (e) {
+        removeNote(item.id)
+        saveNotes(notes)
+        renderNotes(notes, filters)
+    })
 
         // Setup the note tite text
         if (item.title.length > 0) {
