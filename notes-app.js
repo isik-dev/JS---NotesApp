@@ -1,42 +1,28 @@
-let notes = getSavedNotes()
-
-const filters = {
-    searchText: '',
-    sortBy: 'byEdited'
-}
-
-renderNotes(notes, filters)
-
+const notes = [
+    {
+        title: 'my next trip',
+        body: 'i would like to go to busan'
+    },
+    {
+        title: 'habits to work on',
+        body: 'exercise'
+    }, 
+    {
+        title: 'office modidication',
+        body: 'get a new seat'
+    }
+]
 
 document.querySelector('#create-note').addEventListener('click', function (e) {
-    const id = uuidv4()
-    const timestamp = moment().valueOf()
+    e.target.textContent = 'The button was clicked'
+})
 
-    
-    notes.push({
-        id: id,
-        title: '',
-        body: '',
-        createdAt: timestamp,
-        updatedAt: timestamp
+document.querySelector('#remove-all').addEventListener('click', function (e) {
+    document.querySelectorAll('.notes').forEach(function (item, index) {
+        item.remove()
     })
-    saveNotes(notes)
-    location.assign(`/edit.html#${id}`)
 })
 
 document.querySelector('#search-text').addEventListener('input', function (e) {
-    filters.searchText = e.target.value
-    renderNotes(notes, filters )
-})
-
-document.querySelector('#filter-by').addEventListener('change', function (e) {
-    filters.searchText = e.target.value
-    renderNotes(notes, filters)
-})
-
-window.addEventListener('storage', function (e) {
-    if (e.key === 'notes') {
-        notes = JSON.parse(e.newValue)
-        renderNotes(notes, filters)
-    }
+    console.log(e.target.value)
 })
