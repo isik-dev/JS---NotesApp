@@ -1,9 +1,3 @@
-// 1. Add a DOM element between the title and the body inputs (empty span)
-// 2. Set text value: Last edited 4 hours ago
-// 3. Update value on title/body/storage change
-
-
-
 const noteTitle = document.querySelector('#note-title')
 const lastEdited = document.querySelector('#last-edited')
 const noteBody = document.querySelector('#note-text')
